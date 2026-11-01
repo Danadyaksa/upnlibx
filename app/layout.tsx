@@ -31,6 +31,11 @@ export const metadata: Metadata = {
       "Unduh skripsi utuh dari OPAC Digital Library UPN Veteran Yogyakarta dalam format PDF A4 secara instan.",
     type: "website",
   },
+  icons: {
+    icon: "/logo-mark.png",
+    shortcut: "/logo-mark.png",
+    apple: "/logo-mark.png",
+  },
 };
 
 export const viewport: Viewport = {

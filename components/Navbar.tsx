@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { RefreshCw, BookOpen, HelpCircle } from "lucide-react";
+import Image from "next/image";
+import { RefreshCw, HelpCircle } from "lucide-react";
 
 interface NavbarProps {
   onOpenGuide: () => void;
@@ -34,21 +35,31 @@ export default function Navbar({ onOpenGuide, onUseDemo }: NavbarProps) {
   return (
     <header className="w-full border-b border-zinc-800 bg-[#0e1113]">
       <div className="max-w-4xl mx-auto px-4 h-14 flex items-center justify-between">
-        {/* Brand */}
-        <div className="flex items-center gap-2.5">
-          <div className="w-7 h-7 rounded-md bg-emerald-950 border border-emerald-700/50 flex items-center justify-center text-emerald-400">
-            <BookOpen className="w-4 h-4" />
-          </div>
-          <span className="font-semibold text-sm tracking-tight text-zinc-100">
-            Upn<span className="text-emerald-400 font-bold">LibX</span>
-          </span>
-          <span className="text-[11px] text-zinc-500 font-mono hidden sm:inline">
-            / UPNVYK OPAC Extractor
+        {/* Brand: Logo Icon + Logo Text */}
+        <div className="flex items-center gap-2 sm:gap-2.5">
+          <Image
+            src="/logo-mark.png"
+            alt="UpnLibX Logo"
+            width={32}
+            height={32}
+            className="h-7 w-auto object-contain"
+            priority
+          />
+          <Image
+            src="/logo-text.png"
+            alt="UpnLibX"
+            width={110}
+            height={24}
+            className="h-4 sm:h-4.5 w-auto object-contain"
+            priority
+          />
+          <span className="text-[11px] text-zinc-500 font-mono hidden md:inline ml-1 border-l border-zinc-800 pl-2">
+            OPAC Extractor
           </span>
         </div>
 
         {/* Intranet Status & Navigation */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2 sm:gap-2.5">
           {/* Intranet connectivity badge */}
           <div
             className="flex items-center gap-1.5 px-2.5 py-1 rounded border text-xs font-mono"

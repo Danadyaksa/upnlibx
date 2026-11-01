@@ -1,0 +1,73 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img "UpnLibX Logo" [ref=e6]
+          - img "UpnLibX" [ref=e7]
+          - generic [ref=e8]: OPAC Extractor
+        - generic [ref=e9]:
+          - generic [ref=e10]:
+            - generic [ref=e12]: Memeriksa...
+            - button "Cek ulang koneksi intranet" [disabled] [ref=e13]
+          - button "Coba Demo" [ref=e19]
+          - button "Panduan" [ref=e20]
+    - main [ref=e25]:
+      - generic [ref=e26]:
+        - heading "Ekstrak Dokumen OPAC UPN ke PDF" [level=1] [ref=e27]
+        - paragraph [ref=e28]:
+          - text: Mengonversi pecahan gambar Base64 dari server perpustakaan UPN (
+          - code [ref=e29]: 192.168.36.203
+          - text: ) menjadi satu berkas PDF A4. Bug duplikasi server otomatis dibersihkan.
+      - generic [ref=e32]:
+        - generic [ref=e33]: URL Dokumen (dari halaman "Open File")
+        - generic [ref=e35]:
+          - textbox "URL Dokumen (dari halaman \"Open File\")" [ref=e40]:
+            - /placeholder: http://192.168.36.203/libsys_digit_upnvyk/opac/index.php/home/open?...
+          - button "Paste" [ref=e42]
+        - generic [ref=e43]:
+          - button "Unduh PDF" [disabled] [ref=e44]
+          - button "Coba Contoh (Demo)" [ref=e50]
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - generic [ref=e54]: Riwayat Unduhan Sesi Ini
+          - button "Hapus" [ref=e59]
+        - generic [ref=e65]:
+          - generic [ref=e66]:
+            - generic [ref=e70]: Contoh_Skripsi_UPN_Veteran_Yogyakarta_Demo.pdf
+            - generic [ref=e71]: (3 hlm)
+          - button "Pakai" [ref=e72]
+      - generic [ref=e78]:
+        - generic [ref=e79]:
+          - generic [ref=e80]: Cara Mendapatkan URL Dokumen dari OPAC
+          - list [ref=e84]:
+            - listitem [ref=e85]: Hubungkan laptop atau ponsel Anda ke Wi-Fi kampus UPN (UPN-Free, UPN-Hotspot, atau Eduroam).
+            - listitem [ref=e86]:
+              - text: "Buka katalog repositori di browser:"
+              - code [ref=e87]: http://192.168.36.203/libsys_digit_upnvyk/opac/
+            - listitem [ref=e88]:
+              - text: Cari skripsi/karya ilmiah yang diinginkan, kemudian klik tombol
+              - strong [ref=e89]: "\"Open File\""
+              - text: .
+            - listitem [ref=e90]: Salin URL lengkap dari kolom address bar browser, lalu tempelkan ke kolom input di atas.
+        - generic [ref=e91]:
+          - generic [ref=e92]: Catatan Teknis Server Perpustakaan UPN
+          - generic [ref=e99]:
+            - paragraph [ref=e100]:
+              - strong [ref=e101]: "Jaringan Intranet:"
+              - text: Alamat IP
+              - code [ref=e102]: 192.168.36.203
+              - text: adalah subnet internal kampus. Dokumen tidak bisa diakses dari jaringan internet biasa (paket data seluler / Wi-Fi luar kampus) tanpa jaringan kampus.
+            - paragraph [ref=e103]:
+              - strong [ref=e104]: "Bug Render Duplikat:"
+              - text: Server UPN mencetak setiap lembar dokumen sebanyak 2 kali berturut-turut di dalam DOM HTML. Sistem UpnLibX menjalankan deduplikasi sekuensial (
+              - code [ref=e105]: img[i] !== img[i-1]
+              - text: ) agar lembar PDF akhir tidak memiliki halaman dobel.
+    - contentinfo [ref=e106]:
+      - generic [ref=e107]:
+        - generic [ref=e108]:
+          - img "UpnLibX" [ref=e109]
+          - generic [ref=e110]: UpnLibX • UPN "Veteran" Yogyakarta OPAC Tool
+        - paragraph [ref=e111]: Khusus untuk referensi studi & penelitian civitas akademika.
+  - button "Open Next.js Dev Tools" [ref=e117] [cursor=pointer]
+  - alert [ref=e121]
