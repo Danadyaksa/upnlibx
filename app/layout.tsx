@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "UpnLibX — UPN \"Veteran\" Yogyakarta Digital Library Fulltext Extractor",
+  title: "UpnLibX",
   description:
     "Ekstrak dan satukan skripsi, tesis, dan tugas akhir dari repositori digital UPN 'Veteran' Yogyakarta menjadi satu dokumen PDF A4 lengkap berkualitas tinggi.",
   keywords: [
@@ -26,14 +26,17 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "UpnLibX Team" }],
   openGraph: {
-    title: "UpnLibX — UPN Digital Library Fulltext Extractor",
+    title: "UpnLibX",
     description:
       "Unduh skripsi utuh dari OPAC Digital Library UPN Veteran Yogyakarta dalam format PDF A4 secara instan.",
     type: "website",
   },
   icons: {
-    icon: "/logo-mark.png",
-    shortcut: "/logo-mark.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/logo-mark.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
     apple: "/logo-mark.png",
   },
 };
