@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { X, Download, ExternalLink, FileText } from "lucide-react";
+import { X, Download, ExternalLink } from "lucide-react";
 
 interface PdfPreviewModalProps {
   isOpen: boolean;
@@ -21,53 +21,48 @@ export default function PdfPreviewModal({
   if (!isOpen || !pdfBlobUrl) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/80 backdrop-blur-sm"
+      onClick={onClose}
+    >
       <div
-        className="relative w-full max-w-5xl h-[90vh] bg-zinc-950 border border-emerald-500/30 rounded-2xl flex flex-col shadow-2xl overflow-hidden"
+        className="w-full max-w-4xl h-[85vh] bg-[#14171a] border border-zinc-700 rounded-lg flex flex-col overflow-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Modal Top Bar */}
-        <div className="flex items-center justify-between px-5 py-3.5 border-b border-zinc-800 bg-zinc-900/90">
-          <div className="flex items-center gap-2.5 min-w-0">
-            <div className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-400">
-              <FileText className="w-4 h-4" />
-            </div>
-            <div className="truncate">
-              <h3 className="text-sm font-semibold text-zinc-100 truncate">{filename}</h3>
-              <p className="text-[11px] text-zinc-400">Pratinjau PDF Hasil Ekstraksi UpnLibX</p>
-            </div>
-          </div>
+        <div className="flex items-center justify-between px-4 py-2.5 border-b border-zinc-800 bg-[#0d0f11]">
+          <span className="text-xs font-medium text-zinc-200 truncate pr-4">
+            {filename}
+          </span>
 
           <div className="flex items-center gap-2">
             <button
               onClick={onDownload}
-              className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500 hover:bg-emerald-400 text-black transition-all flex items-center gap-1.5 active:scale-95"
+              className="px-2.5 py-1 rounded text-xs font-medium bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-1.5 transition-colors"
             >
               <Download className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Unduh PDF</span>
+              <span>Unduh</span>
             </button>
             <a
               href={pdfBlobUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+              className="p-1 text-zinc-400 hover:text-white"
               title="Buka di tab baru"
             >
               <ExternalLink className="w-4 h-4" />
             </a>
             <button
               onClick={onClose}
-              className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+              className="p-1 text-zinc-400 hover:text-white"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
         </div>
 
-        {/* PDF Viewer Iframe */}
-        <div className="flex-1 w-full bg-zinc-900 overflow-hidden relative">
+        <div className="flex-1 w-full bg-zinc-900">
           <iframe
-            src={`${pdfBlobUrl}#toolbar=1&navpanes=0`}
+            src={`${pdfBlobUrl}#toolbar=1`}
             className="w-full h-full border-0"
             title="Pratinjau PDF"
           />

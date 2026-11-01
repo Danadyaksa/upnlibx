@@ -1,24 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: #090d0e;
-  --foreground: #f3f5f6;
-  --accent: #10b981;
-  --accent-glow: rgba(16, 185, 129, 0.15);
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
-  --font-mono: var(--font-geist-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace);
+  --bg-primary: #0c0e10;
+  --bg-secondary: #14171a;
+  --bg-tertiary: #1c2126;
+  --border-color: #272d34;
+  --text-primary: #f0f3f6;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --brand-green: #10b981;
+  --brand-green-hover: #059669;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-family: var(--font-sans);
-  overflow-x: hidden;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 ::selection {
@@ -26,51 +26,23 @@ body {
   color: #000000;
 }
 
-/* Custom subtle grid background */
-.bg-grid-pattern {
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+/* Crisp focused inputs */
+input:focus {
+  outline: none;
 }
 
-/* Glassmorphism utility */
-.glass-panel {
-  background: rgba(15, 23, 20, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-panel-elevated {
-  background: rgba(18, 28, 24, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(52, 211, 153, 0.15);
-  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5), 0 0 25px -5px rgba(16, 185, 129, 0.1);
-}
-
-/* Smooth radial glows */
-.radial-glow {
-  background: radial-gradient(circle 600px at 50% 0%, rgba(16, 185, 129, 0.12), transparent 70%);
-}
-
-.radial-glow-bottom {
-  background: radial-gradient(circle 500px at 50% 100%, rgba(5, 150, 105, 0.08), transparent 70%);
-}
-
-/* Custom Scrollbar */
+/* Functional clean scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(10, 15, 13, 0.5);
+  background: #0c0e10;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 9999px;
+  background: #272d34;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(16, 185, 129, 0.4);
+  background: #3f4752;
 }

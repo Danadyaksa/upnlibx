@@ -5,8 +5,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ExtractorCard from "@/components/ExtractorCard";
 import RecentHistory, { HistoryItem } from "@/components/RecentHistory";
-import Features from "@/components/Features";
-import FaqSection from "@/components/FaqSection";
+import TechnicalPanel from "@/components/TechnicalPanel";
 import Footer from "@/components/Footer";
 import GuideModal from "@/components/GuideModal";
 import PdfPreviewModal from "@/components/PdfPreviewModal";
@@ -17,21 +16,18 @@ export default function Home() {
   const [isGuideOpen, setIsGuideOpen] = useState(false);
   const [selectedExternalUrl, setSelectedExternalUrl] = useState<string | undefined>(undefined);
 
-  // PDF Preview State
+  // PDF Preview
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewBlobUrl, setPreviewBlobUrl] = useState<string | null>(null);
   const [previewFilename, setPreviewFilename] = useState("Dokumen-UPN.pdf");
 
-  // History State
+  // History
   const [historyItems, setHistoryItems] = useState<HistoryItem[]>([]);
 
-  // Load history from localStorage
   useEffect(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        setHistoryItems(JSON.parse(stored));
-      }
+      if (stored) setHistoryItems(JSON.parse(stored));
     } catch {
       // ignore
     }
@@ -40,7 +36,7 @@ export default function Home() {
   const handleSaveHistory = (item: HistoryItem) => {
     setHistoryItems((prev) => {
       const filtered = prev.filter((i) => i.filename !== item.filename);
-      const updated = [item, ...filtered].slice(0, 5); // Keep top 5
+      const updated = [item, ...filtered].slice(0, 5);
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
       } catch {
@@ -76,19 +72,13 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col bg-[#090d0e] text-zinc-100 selection:bg-emerald-500 selection:text-black">
-      {/* Background patterns and glowing effects */}
-      <div className="fixed inset-0 bg-grid-pattern opacity-40 pointer-events-none -z-20" />
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] radial-glow pointer-events-none -z-10" />
-
-      {/* Navigation */}
+    <div className="min-h-screen flex flex-col bg-[#0b0d0e] text-zinc-100">
       <Navbar
         onOpenGuide={() => setIsGuideOpen(true)}
         onUseDemo={() => setSelectedExternalUrl("demo")}
       />
 
-      {/* Main Content Area */}
-      <main className="flex-1 pb-16">
+      <main className="flex-1 pb-12">
         <Hero />
 
         <ExtractorCard
@@ -104,15 +94,11 @@ export default function Home() {
           onClearHistory={handleClearHistory}
         />
 
-        <Features />
-
-        <FaqSection />
+        <TechnicalPanel />
       </main>
 
-      {/* Footer */}
       <Footer />
 
-      {/* Guide Modal */}
       <GuideModal
         isOpen={isGuideOpen}
         onClose={() => setIsGuideOpen(false)}
@@ -122,7 +108,6 @@ export default function Home() {
         }}
       />
 
-      {/* PDF In-browser Preview Modal */}
       <PdfPreviewModal
         isOpen={previewOpen}
         onClose={() => setPreviewOpen(false)}
